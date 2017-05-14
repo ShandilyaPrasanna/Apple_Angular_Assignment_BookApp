@@ -1,0 +1,25 @@
+<html ng-app="book_app">
+<head>
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/ng2-bootstrap/x.x.x/ng2-bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<script src="controller.js"></script>
+</head>
+<body>
+<div ng-controller="data_book">
+<h1>Book Store</h1>
+<ul>
+<li ng-repeat="book in books">
+<disp-book></disp-book>
+</li>
+</ul>
+<script>
+
+app.directive("dispBook", function() {
+    return {
+        templateUrl : "disp_component.html"
+    };
+});
+</script>
+</body>
+</html>

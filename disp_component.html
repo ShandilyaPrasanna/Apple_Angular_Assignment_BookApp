@@ -1,0 +1,38 @@
+<div>
+
+<hr></hr>
+<div class="container" ng-controller="test">
+  
+  <div class="panel-group" id="book.title">
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="panel-title">
+          <h1 class="text-left">{{book.title}}</h1> <h1 class="pull-right">Rs 550</h1> 
+ </div>
+ </div>       
+         
+      
+        <div class="panel-body">
+        <br>
+<h3>{{book.author}}</h3><br>
+<img src="{{book.image}}"><br>
+
+<button type="button" class="btn btn-link active" ng-click="Description(book.description)">Description</button>
+<button type="button" class="btn btn-link" ng-click="Description(book.specifications)">Specification</button>
+<button type="button" class="btn btn-link">Review</button>
+
+
+        </div>
+   
+      </div>
+      
+      </div>
+    
+    </div>
+    </div>
+ 
+
+
+
+  
