@@ -1,14 +1,15 @@
+
 <div>
 
 <hr></hr>
-<div class="container" ng-controller="test">
+<div class="container">
   
   <div class="panel-group" id="book.title">
   
     <div class="panel panel-default">
       <div class="panel-heading">
         <div class="panel-title">
-          <h1 class="text-left">{{book.title}}</h1> <h1 class="pull-right">Rs 550</h1> 
+          <h1 class="text-left">{{book.title}}</h1> <h1 class="pull-right">Rs 556</h1> 
  </div>
  </div>       
          
@@ -18,9 +19,23 @@
 <h3>{{book.author}}</h3><br>
 <img src="{{book.image}}"><br>
 
-<button type="button" class="btn btn-link active" ng-click="Description(book.description)">Description</button>
-<button type="button" class="btn btn-link" ng-click="Description(book.specifications)">Specification</button>
-<button type="button" class="btn btn-link">Review</button>
+<button type="button" class="btn btn-link active" ng-click="Description=true;Specification=false;Review=false">Description</button>
+<button type="button" class="btn btn-link" ng-click="Specification=true;Description=false;review=false">Specification</button>
+<button type="button" class="btn btn-link" ng-click="Specification=false;Description=false;review=true">Review</button>
+
+<div ng-show="Description">
+<p>{{book.description}}</p>
+
+</div>
+<div ng-show="Specification">
+<p>{{book.specifications}}</p>
+
+</div>
+
+<div ng-show="review">
+<p>Review Form</p>
+
+</div>
 
 
         </div>
