@@ -8,14 +8,15 @@
    <div class="panel panel-default">
       <div class="panel-heading">
         <div class="panel-title">
-          <h1 class="text-left">{{book.title}}</h1> <h1 class="pull-right">Rs 556</h1>
+          <h1 class="text-left">{{book.title}}</h1> <h1 class="pull-right">{{book.cost}}</h1>
         </div>
       </div>
         <div class="panel-body">
          <br>
          <h3>{{book.author}}</h3><br>
          <img src="{{book.image}}"><br>
-
+         <button class="btn btn-primary pull-right" ng-click="cart()" ng-show="val=(book.count==0)?false:true">Add to Cart</button>
+         <h2 class="pull-right" ng-show="val=(book.count==0)?true:false">SOLD OUT</h2>
          <button type="button" class="btn btn-link active" ng-click="Description=true;Specification=false;Review=false">Description</button>
          <button type="button" class="btn btn-link" ng-click="Specification=true;Description=false;review=false">Specification</button>
          <button type="button" class="btn btn-link" ng-click="Specification=false;Description=false;review=true">Review</button>
@@ -42,21 +43,23 @@
               </div>
                 <button type="button" class="btn btn-warning" ng-click="Add_review=(Add_review==true)?false:true">ADD Review</button><br>
                  <div class="panel-group" id="book.Add_review" ng-show="Add_review">
+                 <form name=book.id>
                    <div class="panel panel-default">
                      <div class="panel-body">
-                       Rate the book: <select ng-model"Star">
-                       <option value="Star5">5 Stars</option>
-                       <option value="Star4">4 Stars</option>
-                       <option value="Star3">3 Stars</option>
-                       <option value="Star2">2 Stars</option>
-                       <option value="Star1">1 Star</option>
+                       Rate the book: <select name="star" id="star" ng-change="validate(1)" ng-model="star" required>
+                       <option value="5">5 Stars</option>
+                       <option value="4">4 Stars</option>
+                       <option value="3">3 Stars</option>
+                       <option value="2">2 Stars</option>
+                       <option value="1">1 Star</option>
                        </select>
-                       <textarea rows="4" cols="50" placeholder="Write a Short Review of book" ng-model="strw"></textarea>
-                       <input type="text"  placeholder="Enter your Email Id" ng-model="yemail">
+                       <textarea rows="4" cols="50" placeholder="Write a Short Review of book" id="comment" ng-change="validate(2)" name="comment" ng-model="strw" required></textarea>
+                       <input type="text"  placeholder="Enter your Email Id" id="email" ng-change="validate(3)" ng-model="yemail" name="email" required>
                        
                        <button type="button" class="btn btn-primary" ng-click="submitReview($index,book.id,star,strw,yemail)">Submit Review</button>
                      </div>
                    </div>
+                   </form>
                  </div>
                </div>
              </div>

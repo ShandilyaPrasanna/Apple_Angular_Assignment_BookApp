@@ -9,12 +9,13 @@
 </head>
 <body>
 <div ng-controller="data_book">
+<center>
 <h1>Book Store</h1>
-<ul>
-<li ng-repeat="book in books">
+</center>
+<div ng-repeat="book in books">
 <disp-book></disp-book>
-</li>
-</ul>
+</div>
+
 <script>
 
 app.directive("dispBook", function() {
